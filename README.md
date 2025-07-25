@@ -21,7 +21,7 @@ A web-based internship management platform that connects students with companies
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js, Express.js
-- **Database**: MySQL
+- **Database**: MySQL (using mysql2 driver)
 - **Authentication**: Express Sessions
 
 ## Project Structure
@@ -45,7 +45,7 @@ A web-based internship management platform that connects students with companies
 1. Clone the repository
 ```bash
 git clone https://github.com/CrazyFFester/CSIT128-Project.git
-cd CSIT128-Project
+cd Internship-Management-Website
 ```
 
 2. Install dependencies
@@ -57,10 +57,15 @@ npm install
 - Create a MySQL database
 - Run the SQL scripts in `server/database/queries/setup/`
 
-4. Start the server
+4. Configure database connection
+- Update database credentials in `server/database/connection.js`
+
+5. Start the server
 ```bash
 node server/server.js
 ```
+
+The server will start on port 3000 by default.
 
 ## Usage
 
