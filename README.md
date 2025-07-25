@@ -48,23 +48,14 @@ Watch the project demo: [https://youtu.be/UMjRHRJV3no?si=W6-2pzPxWaOCTzSy](https
 
 1. Clone the repository
 ```bash
-git clone https://github.com/CrazyFFester/CSIT128-Project.git
-cd Internship-Management-Website
+git clone https://github.com/CrazyFFester/Internship-Management-Website.git
 ```
 
 2. Install dependencies
 ```bash
 npm install
 ```
-
-3. Set up the database
-- Create a MySQL database
-- Run the SQL scripts in `server/database/queries/setup/`
-
-4. Configure database connection
-- Update database credentials in `server/database/connection.js`
-
-5. Start the server
+3. Start the server
 ```bash
 node server/server.js
 ```
