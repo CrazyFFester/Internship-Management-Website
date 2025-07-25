@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script src="../../assets/js/api/header-user-data.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/student-profile" class="user-profile">
+              <div class="user-avatar" id="userAvatar"></div>
+              <span id="headerFullName"></span>
+          </a>
+          <a href="/api/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container">
+        <h2 style="text-align: center;">Welcome to Your Student Dashboard</h2>
+        <p style="text-align: center; color: var(--color-text); margin-bottom: 2rem;">
+          Use the options below to explore internships, manage your applications and profile.
+        </p>
+
+        <div class="feature-grid">
+          <a href="/search-internship" class="card" tabindex="0">
+            <h3>Browse Internships</h3>
+            <p>Explore and search internships by category, company, location, and more.</p>
+          </a>
+
+          <a href="/track-applications" class="card" tabindex="0">
+            <h3>My Applications</h3>
+            <p>Track the status of your internship applications in real time.</p>
+          </a>
+
+          <a href="/student-profile" class="card" tabindex="0">
+            <h3>Manage Profile</h3>
+            <p>Update your personal and academic information anytime.</p>
+          </a>
+
+          <a href="/api/logout" class="card" tabindex="0">
+            <h3>Logout</h3>
+            <p>Securely log out of your session and return to the login page.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

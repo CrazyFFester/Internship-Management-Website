@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Applicants</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/view-manage-applications.css" />
+  <script src="../../assets/js/api/header-user-data.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/company-dashboard">Dashboard</a>
+          <a href="/company-profile" class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container">
+        <h2 class="applications-title">View & Manage Applications</h2>
+
+        <!-- Search and Filter Bar -->
+        <div class="filter-bar">
+          <!-- Search Input -->
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by student name, email, university, major..." class="search-input" />
+          </div>
+
+          <!-- Filters Row -->
+          <div class="filters-row">
+            <!-- Internship Filter -->
+            <div class="filter-dropdown">
+              <button type="button" id="internshipFilterBtn" class="filter-btn">
+                <span>All Internships</span>
+                <span class="filter-btn-arrow">▼</span>
+              </button>
+              <div id="internshipFilterDropdown" class="filter-dropdown-content">
+                <div id="internshipOptions" class="filter-options">
+                  <!-- Dynamic content -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Filter -->
+            <div class="status-filter-dropdown">
+              <button type="button" id="statusFilterBtn" class="filter-btn">
+                <span>All Statuses</span>
+                <span class="filter-btn-arrow">▼</span>
+              </button>
+              <div id="statusFilterDropdown" class="filter-dropdown-content status-filter-dropdown-content">
+                <div id="statusOptions" class="filter-options">
+                  <label class="filter-option-label">
+                    <input type="checkbox" value="pending" />
+                    <span>Pending</span>
+                  </label>
+                  <label class="filter-option-label">
+                    <input type="checkbox" value="shortlisted" />
+                    <span>Shortlisted</span>
+                  </label>
+                  <label class="filter-option-label">
+                    <input type="checkbox" value="accepted" />
+                    <span>Accepted</span>
+                  </label>
+                  <label class="filter-option-label">
+                    <input type="checkbox" value="rejected" />
+                    <span>Rejected</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Clear Filters -->
+            <button id="clearFilters" class="clear-filters-btn">
+              Clear All
+            </button>
+          </div>
+
+          <!-- Stats -->
+          <div id="statsBar" class="stats-bar">
+            <span id="totalApplications" class="stats-item">Loading...</span>
+          </div>
+        </div>
+
+        <!-- Applications Container -->
+        <div id="applicationSections">
+          <div class="loading-container">
+            <div class="loading-icon">⏳</div>
+            <p>Loading applications...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../../assets/js/business-logic/company-applications-manager.js"></script>
+  <script src="../../assets/js/ui/applications-ui-handlers.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Internships</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/manage-internships.css" />
+  <script src="../../assets/js/api/header-user-data.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/company-dashboard">Dashboard</a>
+          <a href="/company-profile" class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container manage-container">
+        <h2 class="manage-title">Manage Internships</h2>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button id="createNewButton" class="btn-primary" onclick="showCreateForm()">Create New Internship</button>
+        </div>
+
+        <!-- Create/Edit Form (Hidden by default) -->
+        <form id="internshipForm" class="card internship-form">
+          <input type="hidden" id="editIndex" value="" />
+          
+          <div class="internship-form-grid">
+            <div>
+              <label for="title">Title</label>
+              <input type="text" id="title" placeholder="e.g. Frontend Developer Intern" required />
+            </div>
+            
+            <div>
+              <label for="location">Location</label>
+              <input type="text" id="location" placeholder="e.g. Remote / New York" required />
+            </div>
+            
+            <div>
+              <label for="salary">Stipend (AED)</label>
+              <input type="number" id="salary" placeholder="e.g. 5000" required />
+            </div>
+            
+            <div>
+              <label for="type">Internship Type</label>
+              <select id="type" required>
+                <option value="">Select Type</option>
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+                <option value="remote">Remote</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="duration">Duration (in weeks)</label>
+              <input type="number" id="duration" placeholder="e.g. 8" required />
+            </div>
+            
+            <div>
+              <label for="deadline">Application Deadline</label>
+              <input type="date" id="deadline" required />
+            </div>
+          </div>
+          
+          <div class="form-full-width">
+            <label for="description">Job Description</label>
+            <textarea id="description" placeholder="Describe the internship role, responsibilities, and requirements..." rows="4" required class="form-textarea"></textarea>
+          </div>
+          
+          <div class="form-full-width">
+            <label for="skills">Required Skills</label>
+            <input type="text" id="skills" placeholder="e.g. HTML, CSS, React" required class="form-input-full" />
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Save Internship</button>
+            <button type="button" class="btn-secondary" onclick="cancelForm()">Cancel</button>
+          </div>
+        </form>
+
+        <!-- Posted Internships -->
+        <div class="posted-internships-container">
+          <h3 class="posted-internships-title">Posted Internships</h3>
+        </div>
+        <div id="internshipList" class="internships-list">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../../assets/js/business-logic/internship-manager.js"></script>
+
+</body>
+</html>

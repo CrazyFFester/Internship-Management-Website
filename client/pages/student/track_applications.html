@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply & Track Applications</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/view-manage-applications.css" />
+  <script src="../../assets/js/api/header-user-data.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/student-dashboard">Dashboard</a>
+          <a href="/student-profile" class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container">
+        <h2 style="margin-top: 3rem;">My Applications</h2>
+        <div class="applications-container" id="applicationList">
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../../assets/js/business-logic/student-applications-tracker.js"></script>
+</body>
+</html>

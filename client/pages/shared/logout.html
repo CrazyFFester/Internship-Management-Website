@@ -1,0 +1,44 @@
+<!--TODO: Set right paths for pages-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logged Out</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/logout.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/auth">Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container logout-container">
+        <h2>You've been logged out</h2>
+        <p class="logout-message">Your session has ended. Thank you for using InternManage!</p>
+        <a href="/auth" class="btn-primary">Return to Login</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../../assets/js/authentication/session-manager.js"></script>
+
+</body>
+</html>

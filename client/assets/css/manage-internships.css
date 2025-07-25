@@ -1,0 +1,108 @@
+/* Manage Internships Page Styles */
+
+/* Container styles */
+.manage-container {
+  max-width: 800px;
+}
+
+/* Page title */
+.manage-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-buttons .btn-primary {
+  flex: 1;
+}
+
+/* Internship form */
+.internship-form {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.internship-form.show {
+  display: flex;
+}
+
+/* Form grid */
+.internship-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Full width form elements */
+.form-full-width {
+  grid-column: 1 / -1;
+}
+
+.form-textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+.form-input-full {
+  width: 100%;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-secondary {
+  flex: 1;
+}
+
+/* Posted internships section */
+.posted-internships-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.posted-internships-container {
+  margin-bottom: 1rem;
+}
+
+/* Internships list */
+.internships-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .manage-title {
+    font-size: 2rem;
+  }
+  
+  .internship-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}

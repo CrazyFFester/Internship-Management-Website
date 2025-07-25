@@ -1,0 +1,1 @@
+INSERT INTO users (full_name, email, password, user_type) VALUES (?, ?, ?, ?)

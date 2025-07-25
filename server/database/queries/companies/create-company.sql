@@ -1,0 +1,1 @@
+INSERT INTO companies (user_id, company_name) VALUES (?, ?)

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Company Profile</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/company-dashboard">Dashboard</a>
+          <a href="/company-profile" class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container" style="max-width: 600px;">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Company Profile</h2>
+
+        <!-- Profile Display Mode -->
+        <div id="profileDisplay" class="card" style="display: flex; flex-direction: column; gap: 1.5rem; font-size: 1.2rem; min-height: 300px; padding: 2rem; background-color: #f9fafb; border-radius: 0.75rem; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center;">
+            <strong>Company Name:</strong>
+            <span id="displayCompanyName">Loading...</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center;">
+            <strong>Email:</strong>
+            <span id="displayEmail">Loading...</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center;">
+            <strong>Phone:</strong>
+            <span id="displayPhone">Loading...</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center;">
+            <strong>Website:</strong>
+            <span id="displayWebsite">Loading...</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center;">
+            <strong>Location:</strong>
+            <span id="displayLocation">Loading...</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: start;">
+            <strong>Description:</strong>
+            <div style="max-width: 100%; overflow-wrap: break-word; word-wrap: break-word;">
+              <div id="desc-preview" style="color: #666; line-height: 1.4; word-break: break-word; white-space: pre-wrap;">
+                Loading...
+              </div>
+              <div id="desc-full" style="display: none; color: #666; line-height: 1.4; margin-top: 0.5rem; word-break: break-word; white-space: pre-wrap;">
+                Loading...
+              </div>
+              <button onclick="toggleDescription()" id="desc-btn" style="
+                background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+                border: none;
+                color: white;
+                cursor: pointer;
+                padding: 0.4rem 0.8rem;
+                margin-top: 0.75rem;
+                border-radius: 0.375rem;
+                font-size: 0.85rem;
+                font-weight: 500;
+                transition: all 0.2s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                display: none;
+              " onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3)'; this.style.background='linear-gradient(135deg, #374151 0%, #4b5563 100%)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0, 0, 0, 0.2)'; this.style.background='linear-gradient(135deg, #1f2937 0%, #374151 100%)'">Show More</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Edit Button -->
+        <button id="editButton" class="btn-primary" style="margin-top: 1.5rem; width: 100%;" onclick="toggleEditMode()">Edit Profile</button>
+
+        <!-- Profile Edit Mode -->
+        <form id="profileForm" style="display: none;">
+          <div id="profileEdit" class="card" style="display: none; flex-direction: column; gap: 1.5rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div>
+                <label for="editCompanyName">Company Name</label>
+                <input type="text" id="editCompanyName" required placeholder="e.g. TechNova Pvt Ltd" pattern="^[a-zA-Z0-9\s&.-]{2,100}$" minlength="2" maxlength="100" title="Company name should contain only letters, numbers, spaces, ampersands, dots, and hyphens (2-100 characters)" />
+              </div>
+              
+              <div>
+                <label for="editEmail">Email</label>
+                <input type="email" id="editEmail" required placeholder="company@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" />
+              </div>
+              
+              <div>
+                <label for="editPhone">Phone Number</label>
+                <input type="tel" id="editPhone" placeholder="Contact number" pattern="^[\+]?[0-9\s\-\(\)]{7,20}$" title="Phone number should contain only numbers, spaces, hyphens, parentheses, and plus sign (7-20 characters)" />
+              </div>
+              
+              <div>
+                <label for="editWebsite">Website</label>
+                <input type="url" id="editWebsite" placeholder="https://example.com" pattern="^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$" title="Please enter a valid website URL starting with http:// or https://" />
+              </div>
+              
+              <div>
+                <label for="editLocation">Location</label>
+                <input type="text" id="editLocation" placeholder="City, Country" pattern="^[a-zA-Z\s,.-]{2,100}$" maxlength="100" title="Location should contain only letters, spaces, commas, dots, and hyphens (2-100 characters)" />
+              </div>
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+              <label for="editDescription">About the Company</label>
+              <textarea id="editDescription" rows="4" placeholder="Brief description of the company..." style="width: 100%; resize: vertical;" maxlength="1000" title="Description should not exceed 1000 characters"></textarea>
+            </div>
+            
+            <!-- Password Change Section -->
+            <div style="grid-column: 1 / -1; margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid #e5e7eb;">
+              <h4 style="margin: 0 0 1rem 0; color: #374151; font-size: 1.1rem;">Change Password (Optional)</h4>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="position: relative;">
+                  <label for="editCurrentPassword">Current Password</label>
+                  <input type="password" id="editCurrentPassword" placeholder="Enter current password" minlength="6" title="Enter your current password" />
+                  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('editCurrentPassword')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.2rem;" title="Show/Hide password">👁️</button>
+                </div>
+                <div style="position: relative;">
+                  <label for="editNewPassword">New Password</label>
+                  <input type="password" id="editNewPassword" placeholder="Enter new password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must be at least 8 characters long with at least 1 uppercase, 1 lowercase, 1 number, and 1 special character" />
+                  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('editNewPassword')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.2rem;" title="Show/Hide password">👁️</button>
+                </div>
+                <div style="position: relative;">
+                  <label for="editConfirmPassword">Confirm New Password</label>
+                  <input type="password" id="editConfirmPassword" placeholder="Confirm new password" minlength="8" title="Please retype your new password" />
+                  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('editConfirmPassword')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.2rem;" title="Show/Hide password">👁️</button>
+                </div>
+              </div>
+              <p style="font-size: 0.875rem; color: #6b7280; margin: 0.5rem 0 0 0; font-style: italic;">
+                Leave password fields empty if you don't want to change your password
+              </p>
+            </div>
+            
+            <div style="display: flex; gap: 1rem;">
+              <button type="submit" class="btn-primary" style="flex: 1;">Save Changes</button>
+              <button type="button" class="btn-secondary" style="flex: 1;" onclick="cancelEdit()">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../../assets/js/api/header-user-data.js"></script>
+  <script src="../../assets/js/user-management/company-profile-manager.js"></script>
+  <script src="../../assets/js/user-management/profile-form-validation.js"></script>
+  <script src="../../assets/js/authentication/password-toggle.js"></script>
+</body>
+</html>

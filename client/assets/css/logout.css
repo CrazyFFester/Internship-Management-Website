@@ -1,0 +1,8 @@
+.logout-container {
+    max-width: 600px;
+    text-align: center;
+}
+
+.logout-message {
+    margin-bottom: 2rem;
+}

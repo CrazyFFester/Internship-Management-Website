@@ -1,0 +1,82 @@
+<!--TODO: Add patterns for input fields-->
+<!--TODO: Add Login logic-->
+
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Authentication</title>
+  <link rel="stylesheet" href="../../assets/css/auth.css" />
+  <link rel="stylesheet" href="../../assets/css/auth-components.css" />
+  <script src="../../assets/js/authentication/form-switcher.js"></script>
+  <script src="../../assets/js/authentication/role-selector.js"></script>
+  <script src="../../assets/js/authentication/auth-error-handler.js"></script>
+  <script src="../../assets/js/authentication/auth-form-validation.js"></script>
+  <script src="../../assets/js/authentication/password-toggle.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <a href="/" class="logo" aria-label="Internship Management Website Home">InternManage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-container">
+      <h2 class="auth-title">Authentication</h2>
+      
+      <div class="role-selection">
+        <button class="role-btn active" id="studentRole" data-role="student">Student</button>
+        <button class="role-btn" id="companyRole" data-role="company">Company</button>
+      </div>
+      
+      <div class="auth-card">
+        <div class="form-toggle">
+          <button class="btn-primary active" id="loginBtn" onclick="switchForm('login')">Login</button>
+          <button class="btn-primary" id="signupBtn" onclick="switchForm('signup')">Sign Up</button>
+        </div>
+
+        <form id="loginForm" class="auth-form" action="/api/login" method="post">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required placeholder="Enter your email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"/>
+          <div class="password-container">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required placeholder="Enter your password" name="password" minlength="6" title="Password must be at least 6 characters long"/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('login-password')" title="Show/Hide password">👁️</button>
+          </div>
+          <input type="hidden" name="userType" id="loginUserTypeField" value="student">
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+
+        <form id="signupForm" class="auth-form signup-form-hidden" action="/api/signup" method="post">
+          <label for="signup-name" id="signup-name-label">Full Name</label>
+          <input type="text" id="signup-name" required placeholder="Your full name" name="fullName" pattern="^[a-zA-Z\s]{2,50}$" minlength="2" maxlength="50" title="Full name should contain only letters and spaces (2-50 characters)"/>
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" required placeholder="Enter your email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"/>
+          <div class="password-container">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required placeholder="Create a password" name="password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must be at least 8 characters long with at least 1 uppercase, 1 lowercase, 1 number, and 1 special character"/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('signup-password')" title="Show/Hide password">👁️</button>
+          </div>
+          <div class="password-container">
+            <label for="signup-retype-password">Retype Password</label>
+            <input type="password" id="signup-retype-password" required placeholder="Retype a password"
+                   name="retypePassword" minlength="8" title="Please retype your password"/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('signup-retype-password')" title="Show/Hide password">👁️</button>
+          </div>
+          <input type="hidden" name="userType" id="userTypeField" value="student">
+          <button type="submit" class="btn-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

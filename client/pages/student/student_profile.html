@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Profile</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/student-profile.css" />
+  <script src="../../assets/js/api/header-user-data.js"></script>
+  <script src="../../assets/js/user-management/student-profile-manager.js"></script>
+  <script src="../../assets/js/user-management/profile-form-validation.js"></script>
+  <script src="../../assets/js/authentication/password-toggle.js"></script>
+  <script src="../../assets/js/ui/student-profile-ui-handlers.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/student-dashboard">Dashboard</a>
+          <a href="/student-profile" class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container profile-container">
+        <h2 class="profile-title">Student Profile</h2>
+        
+        <div class="edit-button-container">
+          <button id="editButton" class="btn-edit" onclick="toggleEditMode()">Edit</button>
+        </div>
+
+        <!-- Profile Display Mode -->
+        <div id="profileDisplay" class="card profile-display">
+          <div class="profile-section">
+            <div class="profile-grid">
+              <div class="profile-item">
+                <strong>Full Name:</strong>
+                <span id="displayName">Loading...</span>
+              </div>
+              <div class="profile-item">
+                <strong>Email:</strong>
+                <span id="displayEmail">Loading...</span>
+              </div>
+              <div class="profile-item">
+                <strong>University:</strong>
+                <span id="displayUniversity">Not specified</span>
+              </div>
+              <div class="profile-item">
+                <strong>Major:</strong>
+                <span id="displayMajor">Not specified</span>
+              </div>
+              <div class="profile-item">
+                <strong>Graduation Year:</strong>
+                <span id="displayGradYear">Not specified</span>
+              </div>
+              <div class="profile-item">
+                <strong>Skills:</strong>
+                <span id="displaySkills">Not specified</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Description section with show/hide functionality -->
+          <div class="about-section">
+            <div class="about-grid">
+              <strong>About Me:</strong>
+              <div class="about-content">
+                <div id="desc-preview" class="description-preview">
+                  Loading...
+                </div>
+                <div id="desc-full" class="description-full">
+                  Loading...
+                </div>
+                <button onclick="toggleDescription()" id="desc-btn" class="description-toggle-btn">Show More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Edit Mode -->
+        <div id="profileEdit" class="card profile-edit">
+          <h3>Edit Profile Information</h3>
+          <form id="profileForm">
+            <div class="form-grid">
+              <div>
+                <label for="editName">Full Name</label>
+                <input type="text" id="editName" placeholder="Enter your full name" required pattern="^[a-zA-Z\s]{2,50}$" minlength="2" maxlength="50" title="Full name should contain only letters and spaces (2-50 characters)" />
+              </div>
+              <div>
+                <label for="editEmail">Email</label>
+                <input type="email" id="editEmail" placeholder="Enter your email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" />
+              </div>
+              <div>
+                <label for="editUniversity">University</label>
+                <input type="text" id="editUniversity" placeholder="Enter your university" pattern="^[a-zA-Z\s.-]{2,100}$" maxlength="100" title="University name should contain only letters, spaces, dots, and hyphens (2-100 characters)" />
+              </div>
+              <div>
+                <label for="editMajor">Major</label>
+                <input type="text" id="editMajor" placeholder="e.g. Computer Science" pattern="^[a-zA-Z\s&-]{2,100}$" maxlength="100" title="Major should contain only letters, spaces, ampersands, and hyphens (2-100 characters)" />
+              </div>
+              <div>
+                <label for="editGradYear">Graduation Year</label>
+                <input type="number" id="editGradYear" placeholder="e.g. 2025" min="2020" max="2035" title="Graduation year must be between 2020 and 2035" />
+              </div>
+              <div>
+                <label for="editSkills">Skills</label>
+                <input type="text" id="editSkills" placeholder="e.g. JavaScript, Python, React" pattern="^[a-zA-Z0-9\s,.+#-]{2,500}$" maxlength="500" title="Skills should contain only letters, numbers, spaces, commas, dots, plus signs, hashes, and hyphens (2-500 characters)" />
+              </div>
+            </div>
+            
+            <div class="form-full-width">
+              <label for="editDescription">About Me</label>
+              <textarea id="editDescription" placeholder="Tell us about yourself, your interests, career goals, projects, etc..." rows="4" class="form-textarea" maxlength="1000" title="Description should not exceed 1000 characters"></textarea>
+            </div>
+            
+            <!-- Password Change Section -->
+            <div class="password-section">
+              <h4 class="password-section-title">Change Password (Optional)</h4>
+              <div class="password-grid">
+                <div class="password-field">
+                  <label for="editCurrentPassword">Current Password</label>
+                  <input type="password" id="editCurrentPassword" placeholder="Enter current password" minlength="6" title="Enter your current password" />
+                  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('editCurrentPassword')" title="Show/Hide password">👁️</button>
+                </div>
+                <div class="password-field">
+                  <label for="editNewPassword">New Password</label>
+                  <input type="password" id="editNewPassword" placeholder="Enter new password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must be at least 8 characters long with at least 1 uppercase, 1 lowercase, 1 number, and 1 special character" />
+                  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('editNewPassword')" title="Show/Hide password">👁️</button>
+                </div>
+                <div class="password-field">
+                  <label for="editConfirmPassword">Confirm New Password</label>
+                  <input type="password" id="editConfirmPassword" placeholder="Confirm new password" minlength="8" title="Please retype your new password" />
+                  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('editConfirmPassword')" title="Show/Hide password">👁️</button>
+                </div>
+              </div>
+              <p class="password-note">
+                Leave password fields empty if you don't want to change your password
+              </p>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Save Changes</button>
+              <button type="button" class="btn-secondary" onclick="cancelEdit()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

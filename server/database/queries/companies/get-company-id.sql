@@ -1,0 +1,1 @@
+SELECT id FROM companies WHERE user_id = ?;

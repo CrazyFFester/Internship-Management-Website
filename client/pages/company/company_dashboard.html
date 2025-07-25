@@ -1,0 +1,69 @@
+<!-- TODO: Fix links-->
+<!-- TODO: Add user data in header-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Company Dashboard</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script src="../../assets/js/api/header-user-data.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/company-profile" class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </a>
+          <a href="/api/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container">
+        <h2 style="text-align: center;">Company Dashboard</h2>
+        <p style="text-align: center; color: var(--color-text); margin-bottom: 2rem;">
+          Welcome! Use the tools below to manage internships and company operations.
+        </p>
+
+        <div class="feature-grid">
+          <a href="/manage-internships" class="card" tabindex="0">
+            <h3>Create / Manage Internships</h3>
+            <p>Post new internships or edit existing ones with ease.</p>
+          </a>
+
+          <a href="/view-manage" class="card" tabindex="0">
+            <h3>View Applicants</h3>
+            <p>Review, shortlist, or reject applicants for your postings.</p>
+          </a>
+
+          <a href="/company-profile" class="card" tabindex="0">
+            <h3>Manage Company Profile</h3>
+            <p>Update your company’s info and account details.</p>
+          </a>
+
+          <a href="/api/logout" class="card" tabindex="0">
+            <h3>Logout</h3>
+            <p>Securely log out and protect your company account.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internship Management Website</title>
+  <link rel="stylesheet" href="../../assets/css/index.css">
+  <script src="../../assets/js/navigation/smooth-scroll-handler.js"></script>
+  <script src="../../assets/js/navigation/auth-page-navigator.js"></script>
+  <script src="../../assets/js/api/index-user-data.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <a href="/" class="logo" aria-label="Internship Management Website Home">InternManage</a>
+        
+        <!-- Right side navigation -->
+        <div class="nav-right">
+          <a href="#" id="dashboardLink" class="dashboard-link-hidden">Dashboard</a>
+          <div class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </div>
+          <button class="auth-btn" id="authButton">Login</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="secondary-nav">
+    <div class="nav-links">
+      <a href="#company-site" role="link" tabindex="0">Company Admin</a>
+      <a href="#student-site" role="link" tabindex="0">Student Portal</a>
+      <a href="#about" role="link" tabindex="0">About</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Manage and Find Internships Seamlessly</h1>
+      <p>Empowering companies to post internships and students to discover and apply for their dream internships with ease and confidence.</p>
+
+<!--      TODO: Provide correct link to internships-->
+      <button class="btn-primary" id="browse-btn" aria-label="Browse Internship Opportunities">Browse Internships</button>
+    </section>
+
+    <section id="company-site" class="features" aria-labelledby="company-title">
+      <h2 id="company-title">For Companies - Internship Management</h2>
+      <div class="feature-grid">
+        <article class="card" tabindex="0">
+          <h3>Company Authentication</h3>
+          <p>Secure signup and login allowing companies to manage internship postings with confidence.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Dashboard & Navigation</h3>
+          <p>Access a personalized dashboard to create, update, and delete internship listings effortlessly.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Manage Internships</h3>
+          <p>Create detailed internship listings including title, location, salary, type, skills, duration, and deadlines.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>View & Manage Applications</h3>
+          <p>Search, review, and update application statuses such as accepted, shortlisted, or rejected.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Account Management</h3>
+          <p>Easily update your company profile and account details with real-time data saved securely.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Logout & Security</h3>
+          <p>Quick access to logout from any company page to secure your account after use.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="student-site" class="features" aria-labelledby="student-title">
+      <h2 id="student-title">For Students - Internship Opportunities</h2>
+      <div class="feature-grid">
+        <article class="card" tabindex="0">
+          <h3>User Authentication</h3>
+          <p>Sign up and log in to access personalized internship opportunities and your application status.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>User-Friendly Landing Page</h3>
+          <p>Navigate easily through internships, applications, and your profile with an intuitive landing page.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Search & Filter Internships</h3>
+          <p>Find internships by domains, location, salary, company, and more using robust filters.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Apply Online & Track Applications</h3>
+          <p>Submit applications online, upload your resume, and track the status directly from your portal.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Profile Management</h3>
+          <p>View and update your student profile details with ease and maintain your professional presence.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Logout Link</h3>
+          <p>Logout securely from all student pages to keep your data protected.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="features about-section" aria-labelledby="about-title">
+      <h2 id="about-title">About Internship Management System</h2>
+      <div class="container about-content">
+        <p>This web application is designed to streamline the internship experience by connecting companies and students. It supports user registration, dynamic internship postings, and application tracking, all within an elegant and user-friendly interface focused on enhancing your experience.</p>
+        <p>Developed with latest web technologies, it provides a robust platform for managing internship processes end to end.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+  </body>
+</html>

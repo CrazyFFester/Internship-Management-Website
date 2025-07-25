@@ -1,0 +1,1 @@
+INSERT INTO students (user_id) VALUES (?)

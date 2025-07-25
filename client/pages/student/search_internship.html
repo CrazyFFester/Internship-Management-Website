@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Internships</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/search-internships.css" />
+  <script src="../../assets/js/api/header-user-data.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">InternManage</a>
+        <div class="nav-links">
+          <a href="/student-dashboard">Dashboard</a>
+          <a href="/student-profile" class="user-profile">
+            <div class="user-avatar" id="userAvatar"></div>
+            <span id="headerFullName"></span>
+          </a>
+          <a href="/logout">Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="container">
+        <h2 class="search-title">Search Internships</h2>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <input type="text" id="search" placeholder="Search by title, company, skills, description..." class="search-input" />
+        </div>
+
+        <!-- Main Content Layout -->
+        <div class="search-layout">
+          <!-- Filters Sidebar -->
+          <div class="filters-sidebar">
+            <div class="filters-header">
+              <h3 class="filters-title">Filters</h3>
+              <button type="button" id="clearFilters" class="clear-filters-btn">
+                Clear All
+              </button>
+            </div>
+
+            <!-- Type Filter -->
+            <div class="filter-section">
+              <h4 class="filter-section-title">Type</h4>
+              <div id="typeOptions" class="filter-options">
+                <!-- Dynamic content -->
+              </div>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="filter-section">
+              <h4 class="filter-section-title">Location</h4>
+              <div id="locationOptions" class="filter-options location">
+                <!-- Dynamic content -->
+              </div>
+            </div>
+
+            <!-- Salary Filter -->
+            <div class="filter-section">
+              <h4 class="filter-section-title">Salary Range</h4>
+              <div id="salaryOptions" class="filter-options">
+                <label class="filter-label">
+                  <input type="checkbox" value="0" />
+                  <span>Unpaid</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="1" />
+                  <span>Under AED 44</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="1000" />
+                  <span>AED 44 - AED 219</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="5000" />
+                  <span>AED 220 - AED 439</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="10000" />
+                  <span>AED 440 - AED 1,099</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="25000" />
+                  <span>AED 1,100 - AED 1,999</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="50000" />
+                  <span>AED 2,000+</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Deadline Filter -->
+            <div class="filter-section">
+              <h4 class="filter-section-title">Application Deadline</h4>
+              <div id="deadlineOptions" class="filter-options deadline">
+                <label class="filter-label">
+                  <input type="checkbox" value="7" />
+                  <span>Within 1 week</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="30" />
+                  <span>Within 1 month</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="90" />
+                  <span>Within 3 months</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" value="999" />
+                  <span>No deadline / Later</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div>
+            <div id="resultsHeader" class="results-header">
+              <h3 class="results-title">Available Internships</h3>
+              <p id="resultsCount" class="results-count">Loading...</p>
+            </div>
+            
+            <div id="internshipList">
+              <!-- Dynamic content -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Internship Management Website. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../../assets/js/business-logic/internship-search-engine.js"></script>
+  <script src="../../assets/js/ui/search-ui-interactions.js"></script>
+
+</body>
+</html>

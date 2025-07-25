@@ -1,0 +1,1 @@
+SELECT id FROM applications WHERE student_id = ? AND internship_id = ?;

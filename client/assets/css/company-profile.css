@@ -1,0 +1,111 @@
+.profile-container {
+    max-width: 600px;
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-display-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    min-height: 300px;
+    padding: 2rem;
+    background-color: #f9fafb;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.profile-field {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.profile-field-start {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.description-container {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.description-text {
+    color: #666;
+    line-height: 1.4;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.description-full {
+    display: none;
+    color: #666;
+    line-height: 1.4;
+    margin-top: 0.5rem;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.description-toggle-btn {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    margin-top: 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.description-toggle-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+}
+
+.edit-button {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.profile-form-hidden {
+    display: none;
+}
+
+.profile-edit-hidden {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Error message styling */
+.error-message {
+    background-color: #fee;
+    border: 1px solid #fcc;
+    color: #c66;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    text-align: center;
+}
