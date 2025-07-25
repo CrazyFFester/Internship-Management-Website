@@ -2,6 +2,10 @@
 
 A web-based internship management platform that connects students with companies for internship opportunities.
 
+## Video Demonstration
+
+Watch the project demo: [https://youtu.be/UMjRHRJV3no?si=W6-2pzPxWaOCTzSy](https://youtu.be/UMjRHRJV3no?si=W6-2pzPxWaOCTzSy)
+
 ## Features
 
 ### For Students
