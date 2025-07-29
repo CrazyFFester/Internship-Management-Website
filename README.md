@@ -60,11 +60,11 @@ npm install
 node server/server.js
 ```
 
-The server will start on port 3000 by default.
+The server will start on port 8080 by default.
 
 ## Usage
 
-1. Open your browser and navigate to `http://localhost:3000`
+1. Open your browser and navigate to `http://localhost:8080`
 2. Register as either a student or company
 3. Complete your profile setup
 4. Students can search and apply for internships
